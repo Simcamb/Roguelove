@@ -18,7 +18,7 @@ love.graphics.setFont(font)
 
 function initScreen()
 
-    TILESET_ENV  = Tileset:new("resources/lofi_environment.png")
+    TILESET_ENV  = Tileset:new("resources/lofi_environment_big.png")
     TILESET_CHAR = Tileset:new("resources/lofi_char.png")
 
     QUAD_FLOOR_GRASS         = setQuad(6, 4, TILE_SIZE, TILESET_ENV)
@@ -27,9 +27,12 @@ function initScreen()
     QUAD_FLOOR_WOOD          = setQuad(4, 1, TILE_SIZE, TILESET_ENV)
     QUAD_FLOOR_STONE         = setQuad(5, 0, TILE_SIZE, TILESET_ENV)
 
-    QUAD_WALL_STONE          = setQuad(4, 0, TILE_SIZE, TILESET_ENV)
-    QUAD_WALL_STONE_TOP      = setQuad(0, 0, TILE_SIZE, TILESET_ENV)
-    QUAD_WALL_WOOD           = setQuad(4, 1, TILE_SIZE, TILESET_ENV)
+    QUAD_WALL_STONE              = setQuad(4, 0, TILE_SIZE, TILESET_ENV)
+    QUAD_WALL_STONE_TOP          = setQuad(0, 0, TILE_SIZE, TILESET_ENV)
+    QUAD_WALL_STONE_SIDE         = setQuad(14, 0, TILE_SIZE, TILESET_ENV)
+    QUAD_WALL_STONE_OPEN_CORNER  = setQuad(15, 0, TILE_SIZE, TILESET_ENV)
+    QUAD_WALL_STONE_CLOSE_CORNER = setQuad(16, 0, TILE_SIZE, TILESET_ENV)
+    QUAD_WALL_WOOD               = setQuad(4, 1, TILE_SIZE, TILESET_ENV)
 
     -- Decorations
     QUAD_WALL_STONE_LIGHT_1  = setQuad(1, 0, TILE_SIZE, TILESET_ENV)

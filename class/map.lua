@@ -107,7 +107,7 @@ function Map:asciiToTiles()
                 tile:asciiToQuad(TILESET_ENV, QUAD_WALL_STONE, x, y, false)
 
                 -- Top wall
-                if self.array[x][y+1] ~= nil and self.array[x][y+1].char == "." then
+                if y+1 <= self.hTiles and self.array[x][y+1].char == "." then
                     tile.quad = QUAD_WALL_STONE_TOP
 
                     -- Some lights
@@ -119,7 +119,24 @@ function Map:asciiToTiles()
                     if math.random(1, 15) == 1 then
                         tile.quad = QUAD_WALL_STONE_CRACKED
                     end
+                end
 
+                -- Side wall
+                if x+1 <= self.wTiles and self.array[x+1][y].char == "." then
+                    tile.quad = QUAD_WALL_STONE_SIDE
+                end
+
+                -- Open corner
+                if x+1 <= self.wTiles and y+1 <= self.hTiles
+                    and self.array[x+1][y].char == "." and self.array[x][y+1].char == "." then
+                        tile.quad = QUAD_WALL_STONE_OPEN_CORNER
+                end
+
+                -- Close corner
+                if x+1 <= self.wTiles and y+1 <= self.hTiles
+                    and self.array[x+1][y].char == "#" and self.array[x][y+1].char == "#"
+                    and self.array[x+1][y+1].char == "." then
+                        tile.quad = QUAD_WALL_STONE_CLOSE_CORNER
                 end
 
             elseif tile.char == "." then
